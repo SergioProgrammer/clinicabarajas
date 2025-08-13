@@ -1,45 +1,30 @@
 ---
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import SwiperCore from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+// Opinion.astro
+import { createSignal, onMount } from 'solid-js';
 
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+const [reviews, setReviews] = createSignal([]);
 
-let reviews = [];
-
-const base = import.meta.env.DEV
-  ? 'http://localhost:4321' // Astro dev server
-  : import.meta.env.SITE;   // URL de producción
-
-try {
-  const res = await fetch(`${base}/api/reviews.json`);
-  const data = await res.json();
-  reviews = data.reviews || [];
-} catch (err) {
-  console.error('Error cargando reseñas:', err);
-}
+onMount(async () => {
+  try {
+    const res = await fetch('/api/reviews.json'); // fetch en cliente
+    const data = await res.json();
+    setReviews(data.reviews || []);
+  } catch (e) {
+    console.error("Error cargando reseñas:", e);
+  }
+});
 ---
 
 <section id="opiniones" class="py-16 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold text-gray-800 mb-10">Opiniones de nuestros pacientes</h2>
 
-    {reviews.length === 0 ? (
-      <p class="text-gray-500">Cargando reseñas...</p>
-    ) : (
-      <Swiper
-        loop={true}
-        autoplay={{ delay: 5000 }}
-        pagination={{ clickable: true }}
-        navigation
-        spaceBetween={30}
-        slidesPerView={1}
-      >
-        {reviews.map(review => (
-          <SwiperSlide key={review.author_name}>
+    <div>
+      {reviews().length === 0 ? (
+        <p class="text-gray-500">Cargando reseñas...</p>
+      ) : (
+        <div class="grid gap-8 md:grid-cols-3">
+          {reviews().map((review) => (
             <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
               <div class="flex items-center mb-4">
                 <img src={review.profile_photo_url} alt={review.author_name} class="w-12 h-12 rounded-full mr-4" />
@@ -57,9 +42,9 @@ try {
               </div>
               <p class="text-gray-600 text-left">{review.text}</p>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    )}
+          ))}
+        </div>
+      )}
+    </div>
   </div>
 </section>
