@@ -1,0 +1,39 @@
+{
+  "reviews": [
+    {
+      "author_name": "Paciente 1",
+      "text": "Excelente atención, muy recomendable.",
+      "rating": 5,
+      "relative_time_description": "hace 2 semanas",
+      "profile_photo_url": "https://via.placeholder.com/150"
+    },
+    {
+      "author_name": "Paciente 2",
+      "text": "Muy profesionales y amables.",
+      "rating": 4,
+      "relative_time_description": "hace 1 mes",
+      "profile_photo_url": "https://via.placeholder.com/150"
+    },
+    {
+      "author_name": "Paciente 3",
+      "text": "Instalaciones limpias y modernas.",
+      "rating": 5,
+      "relative_time_description": "hace 3 días",
+      "profile_photo_url": "https://via.placeholder.com/150"
+    },
+    {
+      "author_name": "Paciente 4",
+      "text": "El personal fue muy atento.",
+      "rating": 5,
+      "relative_time_description": "hace 1 semana",
+      "profile_photo_url": "https://via.placeholder.com/150"
+    },
+    {
+      "author_name": "Paciente 5",
+      "text": "Recomendado al 100%.",
+      "rating": 4,
+      "relative_time_description": "hace 2 meses",
+      "profile_photo_url": "https://via.placeholder.com/150"
+    }
+  ]
+}

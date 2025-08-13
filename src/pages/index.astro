@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
 import Hero from "../components/Hero.astro";
-import Opinion from "../components/Opinion.astro";
+import OpinionCarousel from "../components/OpinionCarousel.jsx";
 import Services from "../components/Services.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
@@ -11,7 +11,9 @@ import Footer from "../components/Footer.astro";
 <Layout>
   <NavBar />
   <Hero />
-  <Opinion />
+  <section>  
+  <OpinionCarousel client:load />
+</section>
   <Services />
   <Contact />
   <Footer />
