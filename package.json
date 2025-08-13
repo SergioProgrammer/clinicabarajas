@@ -12,6 +12,7 @@
     "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.16",
+    "aos": "^2.3.4",
     "astro": "^5.12.9",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
