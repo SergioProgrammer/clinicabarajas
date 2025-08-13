@@ -1,0 +1,119 @@
+---
+const menuItems = [
+  { label: "La Clínica", href: "#inicio" },
+  {
+    label: "Especialidades",
+    href: "#sobre",
+    subItems: [
+      { label: "Otorrino", href: "#otorrino" },
+      { label: "Audiología", href: "#audiologia" },
+      { label: "Audífonos", href: "#audifonos" },
+      { label: "Niños y Adolescentes", href: "#ninos" },
+      { label: "Vértigo", href: "#vertigo" },
+      { label: "Voz", href: "#voz" },
+    ]
+  },
+  {
+    label: "Pruebas Clínicas",
+    href: "#servicios",
+    subItems: [
+      { label: "Audiometría", href: "#audiometria" },
+      { label: "Audiometría Infantil", href: "#audiometria-infantil" },
+      { label: "Timpanometría", href: "#timpanometria" },
+      { label: "Otoemisiones Acústicas", href: "#otoemisiones" },
+      { label: "Potenciales Evocados Auditivos", href: "#potenciales" },
+    ]
+  },
+  { label: "Fundación Barajas", href: "#fundacion" },
+  { label: "Contacto", href: "#contacto" },
+];
+---
+
+<nav class="fixed w-full z-50 bg-white shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+    <div class="flex justify-between h-20">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="#inicio" class="text-blue-600 font-bold text-2xl">
+          Clínica Barajas
+        </a>
+      </div>
+
+      <!-- Menu Desktop -->
+      <div class="hidden md:flex items-center space-x-8 text-lg">
+        {menuItems.map(item => (
+          <div class="relative group">
+            <a href={item.href} class="text-gray-700 hover:text-blue-600 font-medium px-2 py-2">
+              {item.label}
+            </a>
+            {item.subItems && (
+              <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-2 text-base">
+                {item.subItems.map(sub => (
+                  <a
+                    href={sub.href}
+                    class="block px-5 py-3 text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+                  >
+                    {sub.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+
+        <!-- Botón Reservar Cita -->
+        <a
+          href="#reserva"
+          class="ml-4 px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition"
+        >
+          Reservar Cita
+        </a>
+      </div>
+
+      <!-- Botón móvil -->
+      <div class="md:hidden flex items-center">
+        <button
+          id="menu-btn"
+          class="text-gray-700 focus:outline-none text-3xl"
+          onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+        >
+          ☰
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu móvil -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg text-lg">
+    {menuItems.map(item => (
+      <>
+        <a
+          href={item.href}
+          class="block px-5 py-4 text-gray-700 hover:bg-gray-100 font-medium"
+        >
+          {item.label}
+        </a>
+        {item.subItems && (
+          <div class="pl-5 bg-gray-50">
+            {item.subItems.map(sub => (
+              <a
+                href={sub.href}
+                class="block px-5 py-3 text-gray-600 hover:bg-gray-100"
+              >
+                {sub.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </>
+    ))}
+
+    <!-- Botón móvil Reservar Cita -->
+    <a
+      href="#reserva"
+      class="block mx-4 my-4 px-5 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition text-center"
+    >
+      Reservar Cita
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,65 @@
+---
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import SwiperCore from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
+
+let reviews = [];
+
+const base = import.meta.env.DEV
+  ? 'http://localhost:4321' // Astro dev server
+  : import.meta.env.SITE;   // URL de producción
+
+try {
+  const res = await fetch(`${base}/api/reviews.json`);
+  const data = await res.json();
+  reviews = data.reviews || [];
+} catch (err) {
+  console.error('Error cargando reseñas:', err);
+}
+---
+
+<section id="opiniones" class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold text-gray-800 mb-10">Opiniones de nuestros pacientes</h2>
+
+    {reviews.length === 0 ? (
+      <p class="text-gray-500">Cargando reseñas...</p>
+    ) : (
+      <Swiper
+        loop={true}
+        autoplay={{ delay: 5000 }}
+        pagination={{ clickable: true }}
+        navigation
+        spaceBetween={30}
+        slidesPerView={1}
+      >
+        {reviews.map(review => (
+          <SwiperSlide key={review.author_name}>
+            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+              <div class="flex items-center mb-4">
+                <img src={review.profile_photo_url} alt={review.author_name} class="w-12 h-12 rounded-full mr-4" />
+                <div class="text-left">
+                  <h3 class="font-semibold text-gray-800">{review.author_name}</h3>
+                  <p class="text-sm text-gray-500">{review.relative_time_description}</p>
+                </div>
+              </div>
+              <div class="flex mb-3">
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <svg key={i} xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.17 3.6a1 1 0 00.95.69h3.8c.969 0 1.371 1.24.588 1.81l-3.072 2.23a1 1 0 00-.364 1.118l1.17 3.6c.3.921-.755 1.688-1.54 1.118l-3.072-2.23a1 1 0 00-1.176 0l-3.072 2.23c-.785.57-1.84-.197-1.54-1.118l1.17-3.6a1 1 0 00-.364-1.118L2.44 9.027c-.783-.57-.38-1.81.588-1.81h3.8a1 1 0 00.95-.69l1.17-3.6z" />
+                  </svg>
+                ))}
+              </div>
+              <p class="text-gray-600 text-left">{review.text}</p>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    )}
+  </div>
+</section>
