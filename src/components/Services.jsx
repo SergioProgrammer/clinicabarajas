@@ -113,9 +113,14 @@ export default function Services() {
         }
       `}</style>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-      <section className="py-16 bg-[#14b8a6]">
+      <section className="py-14 bg-[#14b8a6]">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-12">Especialidades</h2>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-12 mt-0 ">
+            Nuestras  
+            <span class="bg-white px-3 pt-16 ml-2 pb-1 rounded-xl text-teal-500 shadow-lg">
+              Especialidades
+            </span>
+          </h2>
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
               <div
