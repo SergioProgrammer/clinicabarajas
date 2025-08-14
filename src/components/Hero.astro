@@ -1,18 +1,63 @@
 <section 
-  class="relative bg-blue-600 text-white min-h-screen flex flex-col justify-center items-center text-center px-4 bg-cover bg-center"
+  class="relative min-h-screen flex items-center bg-cover bg-center"
   style="background-image: url('/hero/barajashero.jpg');"
 >
-  <div class="absolute inset-0 bg-black/50"></div>
+  <!-- Capa oscura -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
 
-  <!-- Contenido -->
-  <div class="relative z-10">
-    <h1 class="text-4xl md:text-6xl font-bold">Clínica Barajas</h1>
-    <p class="mt-4 max-w-xl mx-auto">
-      Cuidamos de tu salud con la última tecnología y el mejor equipo médico.
-    </p>
+  <!-- Contenedor -->
+  <div class="relative z-10 flex flex-col gap-8 max-w-4xl text-white animate-fadeInUp px-8 md:px-36">
+
+    <!-- Texto principal -->
+    <div>
+      <h1 class="text-4xl md:text-6xl font-extrabold drop-shadow-lg leading-tight">
+        Clínica Barajas
+      </h1>
+      <p class="mt-4 text-lg md:text-xl text-gray-100 leading-relaxed max-w-xl">
+        Cuidamos de tu salud con la última tecnología y el mejor equipo médico, 
+        para que tú y tu familia vivan con tranquilidad.
+      </p>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="bg-white/10 p-6 md:p-8 rounded-2xl backdrop-blur-sm shadow-lg border border-white/20 max-w-xl">
+      <h2 class="text-2xl font-semibold mb-4">Más de 100 años cuidando de ti</h2>
+      <p class="text-gray-100 mb-4">
+        Somos un centro de otorrinolaringología referente en Tenerife y las Islas Canarias. 
+        Nuestro equipo está altamente capacitado y comprometido con la excelencia en diagnóstico, 
+        tratamiento y cuidado de las condiciones relacionadas con la audición, el equilibrio y la voz.
+      </p>
+      <ul class="space-y-2">
+        <li class="flex items-center gap-2">
+          <span class="text-teal-400">✔</span> Otorrino y Audiología de vanguardia
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-teal-400">✔</span> Diagnóstico rápido y preciso
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-teal-400">✔</span> Atención personalizada y cercana
+        </li>
+      </ul>
+    </div>
+
+    <!-- Botón -->
     <a href="#contacto" 
-       class="mt-6 px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow hover:bg-gray-100 inline-block">
+       class="mt-4 inline-block px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-fit">
       Pide tu cita
     </a>
   </div>
+
+  <!-- Elementos decorativos -->
+  <div class="absolute -top-10 -left-10 w-40 h-40 bg-teal-400/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-10 right-10 w-32 h-32 bg-teal-500/20 rounded-full blur-3xl animate-pulse"></div>
 </section>
+
+<style>
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+</style>
