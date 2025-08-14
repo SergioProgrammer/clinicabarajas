@@ -6,26 +6,20 @@
   <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/60"></div>
 
   <!-- Contenedor -->
-  <div class="relative z-10 flex flex-col gap-8 max-w-4xl text-white animate-fadeInUp px-8 md:px-36">
-
+  <div class="relative z-10 flex flex-col gap-8 max-w-4xl text-white animate-fadeInUp px-6 md:px-36 w-full">
     <!-- Texto principal -->
     <div>
-      <h1 class="text-4xl md:text-6xl font-extrabold drop-shadow-lg leading-tight">
+      <h1 class="text-3xl md:text-6xl font-extrabold drop-shadow-lg leading-tight text-center md:text-left">
         Clínica Barajas
       </h1>
-      <p class="mt-4 text-2xl md:text-xl text-gray-100 leading-relaxed max-w-xl">
-        Cuidamos de tu salud con la última tecnología y el mejor equipo médico, 
-        para que tú y tu familia vivan con tranquilidad.
-      </p>
     </div>
 
-    <!-- Información adicional -->
-    <div class="bg-teal-500 p-6 md:p-8 rounded-2xl backdrop-blur-sm shadow-lg border border-white/20 max-w-xl">
+    <!-- Información adicional (solo desktop) -->
+    <div class="hidden md:block bg-teal-500 p-8 rounded-2xl backdrop-blur-sm shadow-lg border border-white/20 max-w-xl bg-opacity-50">
       <h2 class="text-4xl font-semibold mb-4">Más de 100 años cuidando de ti</h2>
       <p class="text-gray-100 mb-4 text-2xl">
-        Somos un centro de otorrinolaringología referente en Tenerife y las Islas Canarias. 
-        Nuestro equipo está altamente capacitado y comprometido con la excelencia en diagnóstico, 
-        tratamiento y cuidado de las condiciones relacionadas con la audición, el equilibrio y la voz.
+        Cuidamos de tu salud con la última tecnología y el mejor equipo médico, 
+        para que tú y tu familia vivan con tranquilidad.
       </p>
       <ul class="space-y-2">
         <li class="flex items-center gap-2">
@@ -40,16 +34,24 @@
       </ul>
     </div>
 
+    <!-- Información resumida (solo mobile) -->
+    <div class="md:hidden bg-teal-600/80 p-4 rounded-xl shadow-lg border border-white/20 text-center">
+      <h2 class="text-xl font-semibold mb-2">Más de 100 años cuidando de ti</h2>
+      <p class="text-gray-100 text-base">
+        Tecnología avanzada y atención cercana para tu salud auditiva.
+      </p>
+    </div>
+
     <!-- Botón -->
     <a href="#contacto" 
-       class="mt-4 inline-block px-8 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-2xl font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-fit">
+       class="mt-2 inline-block px-6 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-lg md:text-2xl font-semibold rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-fit mx-auto md:mx-0">
       Pide tu cita
     </a>
   </div>
 
-  <!-- Elementos decorativos -->
-  <div class="absolute -top-10 -left-10 w-40 h-40 bg-teal-400/20 rounded-full blur-3xl animate-pulse"></div>
-  <div class="absolute bottom-10 right-10 w-32 h-32 bg-teal-500/20 rounded-full blur-3xl animate-pulse"></div>
+  <!-- Elementos decorativos solo en desktop -->
+  <div class="hidden md:block absolute -top-10 -left-10 w-40 h-40 bg-teal-400/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="hidden md:block absolute bottom-10 right-10 w-32 h-32 bg-teal-500/20 rounded-full blur-3xl animate-pulse"></div>
 </section>
 
 <style>
