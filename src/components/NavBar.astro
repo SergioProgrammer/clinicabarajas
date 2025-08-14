@@ -29,29 +29,35 @@ const menuItems = [
 ];
 ---
 
-<nav class="fixed w-full z-50 bg-white shadow-lg">
+<nav class="fixed w-full z-50 bg-white/90 backdrop-blur-lg shadow-md border-b border-teal-100">
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-    <div class="flex justify-between h-20">
+    <div class="flex justify-between h-20 items-center">
       <!-- Logo -->
-      <div class="flex items-center">
-        <a href="#inicio" class="text-blue-600 font-bold text-2xl">
-          Clínica Barajas
-        </a>
-      </div>
+      <a href="#inicio" class="flex items-center gap-2 text-teal-700 font-extrabold text-2xl">
+        <svg width="32" height="32" fill="none" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="28" stroke="#14b8a6" stroke-width="4" />
+          <path d="M20 30c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z" fill="#14b8a6" opacity="0.2"/>
+          <path d="M30 22v8l6 4" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Clínica Barajas
+      </a>
 
       <!-- Menu Desktop -->
-      <div class="hidden md:flex items-center space-x-8 text-lg">
+      <div class="hidden md:flex items-center space-x-4 text-lg">
         {menuItems.map(item => (
           <div class="relative group">
-            <a href={item.href} class="text-gray-700 hover:text-blue-600 font-medium px-2 py-2">
+            <a 
+              href={item.href} 
+              class="px-3 py-2 rounded-lg transition-all duration-200 text-teal-700 font-medium hover:text-teal-900 hover:bg-teal-50"
+            >
               {item.label}
             </a>
             {item.subItems && (
-              <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-2 text-base">
+              <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 text-base min-w-[200px] border border-teal-100 animate-fadeIn">
                 {item.subItems.map(sub => (
                   <a
                     href={sub.href}
-                    class="block px-5 py-3 text-gray-700 hover:bg-gray-100 whitespace-nowrap"
+                    class="block px-5 py-3 text-teal-700 hover:bg-teal-50 whitespace-nowrap rounded-lg transition-colors"
                   >
                     {sub.label}
                   </a>
@@ -64,41 +70,39 @@ const menuItems = [
         <!-- Botón Reservar Cita -->
         <a
           href="#reserva"
-          class="ml-4 px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition"
+          class="ml-4 px-5 py-2 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-200"
         >
           Reservar Cita
         </a>
       </div>
 
       <!-- Botón móvil -->
-      <div class="md:hidden flex items-center">
-        <button
-          id="menu-btn"
-          class="text-gray-700 focus:outline-none text-3xl"
-          onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
-        >
-          ☰
-        </button>
-      </div>
+      <button
+        id="menu-btn"
+        class="md:hidden text-teal-700 text-3xl focus:outline-none"
+        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+      >
+        ☰
+      </button>
     </div>
   </div>
 
   <!-- Menu móvil -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg text-lg">
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 shadow-lg border-t border-teal-100 rounded-b-lg">
     {menuItems.map(item => (
       <>
         <a
           href={item.href}
-          class="block px-5 py-4 text-gray-700 hover:bg-gray-100 font-medium"
+          class="block px-5 py-4 text-teal-700 hover:bg-teal-50 font-semibold"
         >
           {item.label}
         </a>
         {item.subItems && (
-          <div class="pl-5 bg-gray-50">
+          <div class="pl-5 bg-teal-50">
             {item.subItems.map(sub => (
               <a
                 href={sub.href}
-                class="block px-5 py-3 text-gray-600 hover:bg-gray-100"
+                class="block px-5 py-3 text-teal-700 hover:bg-teal-100"
               >
                 {sub.label}
               </a>
@@ -111,9 +115,19 @@ const menuItems = [
     <!-- Botón móvil Reservar Cita -->
     <a
       href="#reserva"
-      class="block mx-4 my-4 px-5 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition text-center"
+      class="block mx-4 my-4 px-5 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-full shadow-md hover:shadow-lg hover:from-teal-600 hover:to-teal-700 text-center transition-all duration-200"
     >
       Reservar Cita
     </a>
   </div>
 </nav>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+</style>

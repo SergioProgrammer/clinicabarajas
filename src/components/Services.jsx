@@ -50,9 +50,10 @@ export default function Services() {
     <>
       <style>{`
         .service-card {
-          min-height: 340px;
+          min-height: 300px;
           height: 100%;
           position: relative;
+          background: #FFFFFF;
           cursor: pointer;
           transition: box-shadow 0.3s;
         }
@@ -65,7 +66,7 @@ export default function Services() {
           position: absolute;
           inset: 0;
           background: #14b8a6;
-          color: #fff;
+          color: #FFFFFF;
           opacity: 0;
           transition: opacity 0.3s, background 0.3s;
           display: flex;
@@ -86,7 +87,7 @@ export default function Services() {
           width: 100%;
           height: 220px;
           object-fit: cover;
-          border-radius: 18px 18px 0 0;
+          border-radius: 2px 2px 0 0;
           filter: brightness(1);
           transition: filter 0.3s;
         }
@@ -112,9 +113,9 @@ export default function Services() {
         }
       `}</style>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[#14b8a6]">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-teal-700 mb-12">Especialidades</h2>
+          <h2 className="text-4xl font-bold text-white mb-12">Especialidades</h2>
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
               <div
