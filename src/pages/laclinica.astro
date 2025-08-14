@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
+import Instalaciones from "../subcomponents/Instalaciones.jsx";
+import Historia from "../subcomponents/Historia.astro";
 import Qya from "../components/Qya.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
@@ -9,7 +11,9 @@ import Footer from "../components/Footer.astro";
 <Layout>
   <NavBar />
   <div class="pt-32">
-    <Qya />
+  <Instalaciones client:load/>
+  <Historia />
+  <Qya />
   <Contact />
   </div>
   <Footer />

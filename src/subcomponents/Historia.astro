@@ -1,0 +1,50 @@
+---
+const historia = `La historia de la familia Barajas en relación con la otorrinolaringología empieza con Don Luciano Barajas y Gallego (1864-1920) eminente otorrinolaringólogo español que aparte de publicar numerosas contribuciones científicas y ayudar de forma fundamental a consolidar la especialidad de otorrinolaringología en nuestro país, funda en Madrid la primera clínica otorrinolaringológica privada de España, la Clínica de Nuestra Señora del Carmen, en el año 1897. Don Luciano Barajas y Gallego, tiene ocho hijos, dos de los cuales se dedican a la otorrinolaringología, Don José María y Don Fernando Barajas y Vilches. Don Fernando, se trasladó a Santa Cruz de Tenerife en el año 1926. En una primera época se establece en la calle Imeldo Serís, entonces de Barranquillo, hasta que a principios de los años treinta abre una clínica otorrinolaringológica en la calle de Pérez de Rozas número 5.
+
+Fernando Barajas impulsor de la Clínica Barajas.
+Desde su llegada a Tenerife hasta su prematuro fallecimiento (1955) atiende a numerosos pacientes de forma ejemplar por lo que hoy, a pesar del tiempo transcurrido desde su muerte, es recordado por aquellos que tuvieron oportunidad de tratarle. En 1950 se incorpora a esta consulta, Don Fernando Barajas de Prat, hijo mayor de Don Fernando Barajas y Vilches, el cual trabajó como otorrinolaringólogo en la Clínica Barajas hasta su inesperada muerte en el año 1982. Durante estos años mostró una gran dedicación y extraordinario entusiasmo en el ejercicio de su profesión, siendo respetado y admirado por sus colegas a la vez que considerado como uno de los mejores especialistas de este país.
+
+Publicación del Dr. Luciano Barajas.
+A su muerte se incorpora a la Clínica Barajas su hermano José Juan. La actividad del Dr. José Juan Barajas de Prat en su incorporación a la clínica, ha sido intensa. Ha publicado numerosas contribuciones científicas y participado en numerosos congresos nacionales e internacionales. Ha sido presidente de varios congresos internacionales de la especialidad en Tenerife y actualmente ocupa diferentes cargos en sociedades internacionales.`;
+---
+
+<section id="historia" class="relative bg-white py-20 px-6 md:px-20 overflow-hidden">
+  <!-- Elementos decorativos -->
+  <div class="absolute top-0 left-0 w-48 h-48 bg-white rounded-full opacity-20 blur-2xl animate-pulse"></div>
+  <div class="absolute bottom-0 right-0 w-40 h-40 bg-white rounded-full opacity-10 blur-2xl animate-pulse"></div>
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+    
+    <!-- Texto -->
+    <div>
+      <h2 class="text-4xl md:text-5xl font-extrabold text-teal-700 mb-6 drop-shadow-lg flex items-center gap-3">
+        <svg width="36" height="36" fill="none" viewBox="0 0 60 60" class="hidden md:inline">
+          <circle cx="30" cy="30" r="28" stroke="#14b8a6" stroke-width="4" />
+          <path d="M20 30c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z" fill="#14b8a6" opacity="0.2"/>
+          <path d="M30 22v8l6 4" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Historia de la Clínica
+      </h2>
+      <div class="bg-white/80 rounded-2xl shadow-lg p-6 border border-teal-100">
+        <p class="text-gray-700 leading-relaxed whitespace-pre-line text-lg md:text-xl">
+          {historia}
+        </p>
+      </div>
+    </div>
+
+    <!-- Galería de imágenes con efecto hover -->
+    <div class="grid grid-cols-2 gap-4">
+      <div class="col-span-2 group relative">
+        <img src="/historia/antigua-clinica-barajas.jpeg" alt="Historia Clínica Barajas" class="w-full h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-105" />
+        <span class="absolute bottom-4 left-4 bg-teal-700/80 text-white px-4 py-2 rounded-xl text-sm shadow-lg backdrop-blur-md">Primera clínica en Tenerife</span>
+      </div>
+      <div class="group relative">
+        <img src="/historia/fernando-barajas.webp" alt="Fernando Barajas" class="w-full h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-105" />
+        <span class="absolute bottom-2 left-2 bg-teal-700/80 text-white px-3 py-1 rounded-xl text-xs shadow backdrop-blur-md">Dr. Fernando Barajas</span>
+      </div>
+      <div class="group relative">
+        <img src="/historia/publicacion-dr-luciano-barajas.jpeg" alt="Publicación Dr. Luciano Barajas" class="w-full h-64 object-cover rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-105" />
+        <span class="absolute bottom-2 left-2 bg-teal-700/80 text-white px-3 py-1 rounded-xl text-xs shadow backdrop-blur-md">Publicación histórica</span>
+      </div>
+    </div>
+  </div>
+</section>
